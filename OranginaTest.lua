@@ -2290,7 +2290,7 @@ farmo:CreateToggle("Farm All Leaves ["..Danger.."]", nil, function(State) kocmoc
 local farmt = farmtab:CreateSection("Farming")
 guiElements["toggles"]["autodispense"] = farmt:CreateToggle("Auto Dispenser [⚙]", nil, function(State) kocmoc.toggles.autodispense = State end)
 guiElements["toggles"]["autoboosters"] = farmt:CreateToggle("Auto Field Boosters [⚙]", nil, function(State) kocmoc.toggles.autoboosters = State end)
-guiElements["toggles"][""] = farmt:CreateToggle("Auto Wealth Clock", nil, function(State) kocmoc.toggles.clock = State end)
+guiElements["toggles"]["clock"] = farmt:CreateToggle("Auto Wealth Clock", nil, function(State) kocmoc.toggles.clock = State end)
 guiElements["toggles"]["sproutsummoner"] = farmt:CreateToggle("Auto Sprout Summoner", nil, function(State) kocmoc.toggles.sproutsummoner = State end)
 guiElements["toggles"]["collectgingerbreads"] = farmt:CreateToggle("Auto Gingerbread Bears ["..Beesmas.."]", nil, function(State) kocmoc.toggles.collectgingerbreads = State end)
 guiElements["toggles"]["autosamovar"] = farmt:CreateToggle("Auto Samovar ["..Beesmas.."]", nil, function(State) kocmoc.toggles.autosamovar = State end)
