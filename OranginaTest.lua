@@ -304,8 +304,8 @@ local buffTable = {
     ["Enzymes"] = {b = false, DecalID = "2584584968"},
     ["Glue"] = {b = false, DecalID = "2504978518"},
     ["Glitter"] = {b = false, DecalID = "2542899798"},
-    ["Tropical Drink"] = {b = false, DecalID = "3835877932"}
-    ["Stinger"] = {b = false, DecalID = "2314214749"}
+    ["Tropical Drink"] = {b = false, DecalID = "3835877932"},
+    ["Stinger"] = {b = false, DecalID = "2314214749"},
 }
 local AccessoryTypes = require(game:GetService("ReplicatedStorage").Accessories).GetTypes()
 local MasksTable = {}
@@ -2290,6 +2290,7 @@ local farmt = farmtab:CreateSection("Farming")
 guiElements["toggles"]["autodispense"] = farmt:CreateToggle("Auto Dispenser [⚙]", nil, function(State) kocmoc.toggles.autodispense = State end)
 guiElements["toggles"]["autoboosters"] = farmt:CreateToggle("Auto Field Boosters [⚙]", nil, function(State) kocmoc.toggles.autoboosters = State end)
 guiElements["toggles"]["clock"] = farmt:CreateToggle("Auto Wealth Clock", nil, function(State) kocmoc.toggles.clock = State end)
+guiElements["toggles"]["sproutsummoner"] = farmt:CreateToggle("Auto Sprout Summoner", nil, function(State) kocmoc.toggles.clock = State end)
 guiElements["toggles"]["collectgingerbreads"] = farmt:CreateToggle("Auto Gingerbread Bears ["..Beesmas.."]", nil, function(State) kocmoc.toggles.collectgingerbreads = State end)
 guiElements["toggles"]["autosamovar"] = farmt:CreateToggle("Auto Samovar ["..Beesmas.."]", nil, function(State) kocmoc.toggles.autosamovar = State end)
 guiElements["toggles"]["autosnowmachine"] = farmt:CreateToggle("Auto Snow Machine ["..Beesmas.."]", nil, function(State) kocmoc.toggles.autosnowmachine = State end)
@@ -4132,6 +4133,9 @@ task.spawn(function()
         if kocmoc.toggles.clock then
             game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Wealth Clock")
         end
+	if kocmoc.toggles.sproutsummoner then
+            game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Sprout Summoner")
+        end
         if kocmoc.toggles.freeantpass then
             game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Free Ant Pass Dispenser")
         end
@@ -4683,14 +4687,15 @@ task.spawn(function()
                           game.Workspace.Toys["Instant Converter C"]
                               .Platform.Position + Vector3.new(0, 5, 0)))
         end)
-        local wcUpd = panel2:CreateButton("Wealth Clock: 00:00", function()
-            api.tween(1, CFrame.new(
-                          game.Workspace.Toys["Wealth Clock"]
-                              .Platform.Position + Vector3.new(0, 5, 0)))
+        local wcUpd = panel2:CreateButton("Clock: 00:00", function()
+            api.tween(1, CFrame.new( game.Workspace.Toys["Wealth Clock"].Platform.Position + Vector3.new(0, 5, 0)))
         end)
         local mmsUpd = panel2:CreateButton("Mythic Meteor Shower: 00:00", function()
             api.tween(1, CFrame.new( game.Workspace.Toys["Mythic Meteor Shower"].Platform.Position + Vector3.new(0, 5, 0)))
         end)
+	local ssUpd = panel2:CreateButton("Sprout Summoner: 00:00", function()
+            api.tween(1, CFrame.new( game.Workspace.Toys["Sprout Summoner"].Platform.Position + Vector3.new(0, 5, 0)))
+	end)
         local utilities = {
             ["Red Field Booster"] = rfbUpd,
             ["Blue Field Booster"] = bfbUpd,
@@ -4700,7 +4705,8 @@ task.spawn(function()
             ["Instant Converter B"] = ic2,
             ["Instant Converter C"] = ic3,
             ["Wealth Clock"] = wcUpd,
-            ["Mythic Meteor Shower"] = mmsUpd
+            ["Mythic Meteor Shower"] = mmsUpd,
+	        ["Sprout Summoner"] = ssUpd,
         }
         while task.wait(1) do
             if kocmoc.toggles.enablestatuspanel then
