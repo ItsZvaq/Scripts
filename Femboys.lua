@@ -4973,3 +4973,5 @@ end
 if workspace:FindFirstChild("Gates") and workspace.Gates:FindFirstChild("15 Bee Gate") and workspace.Gates["15 Bee Gate"]:FindFirstChild("Frame") then
     game:GetService("Workspace").Gates["15 Bee Gate"].Frame:Destroy()
 end
+
+end)
