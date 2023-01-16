@@ -4614,7 +4614,7 @@ task.spawn(function()
         end)
 		
 		
-		local panel = hometab:CreateSection("Mob Panel")
+		--[[ local panel = hometab:CreateSection("Mob Panel")
         local statusTable = {}
         for i, v in pairs(monsterspawners:GetChildren()) do
             if not string.find(v.Name, "CaveMonster") then
@@ -4746,7 +4746,7 @@ task.spawn(function()
                 end
             end
         end
-    end)
+    end) ]]
 end)
 		
 		
