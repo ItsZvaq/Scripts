@@ -304,10 +304,10 @@ local buffTable = {
     ["Enzymes"] = {b = false, DecalID = "2584584968"},
     ["Glue"] = {b = false, DecalID = "2504978518"},
     ["Glitter"] = {b = false, DecalID = "2542899798"},
-    ["Tropical Drink"] = {b = false, DecalID = "3835877932"}
+    ["Tropical Drink"] = {b = false, DecalID = "3835877932"},
     ["Super Smoothie"] = {b = false, DecalID = "5144657109"},
     ["Purple Potion"] = {b = false, DecalID = "4935580111"},
-    ["Stinger"] = {b = false, DecalID = "2314214749"}
+    ["Stinger"] = {b = false, DecalID = "2314214749"},
 }
 local AccessoryTypes = require(game:GetService("ReplicatedStorage").Accessories).GetTypes()
 local MasksTable = {}
