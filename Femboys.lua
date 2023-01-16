@@ -433,7 +433,7 @@ getgenv().kocmoc = {
         convertballoons = false,
         autostockings = false,
         autosamovar = false,
-	autoplantsprouts = false,
+	    autoplantsprouts = false,
         autosnowmachine = false,
         autohoneywreath = false,
         autoonettart = false,
@@ -487,7 +487,7 @@ getgenv().kocmoc = {
         ["autouseGlue"] = false,
         ["autouseGlitter"] = false,
         ["autouseTropical Drink"] = false,
-	["autouseSuper Smoothie"] = false,
+	    ["autouseSuper Smoothie"] = false,
         ["autousePurple Potion"] = false,
         ["autouseStinger"] = false,	
         usegumdropsforquest = false,
@@ -3754,9 +3754,6 @@ task.spawn(function()
                         if kocmoc.toggles.autoquest then
                             makequests()
                         end
-			if kocmoc.toggles.autoplantsprouts then		
-			game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer("Magic Bean")
-			end
 						
                         if kocmoc.toggles.autokillmobs then
                             if tick() - temptable.lastmobkill >= kocmoc.vars.monstertimer * 60 then
@@ -4094,10 +4091,21 @@ task.spawn(function()
             if kocmoc.toggles.autodonate then
                 if isWindshrineOnCooldown() == false then
                     donateToShrine(kocmoc.vars.donoItem, kocmoc.vars.donoAmount)
-                end
-            end
-        end
-    end
+                    
+              end   
+            if kocmoc.toggles.autoplantsprouts then		
+            wait(5)
+			local args = {
+            [1] = {
+            ["Name"] = "Magic Bean"
+                     }
+                        }
+
+            game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack(args))
+			end
+      end
+     end
+   end
 end)
 
 task.spawn(function()
