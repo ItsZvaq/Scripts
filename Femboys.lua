@@ -433,7 +433,7 @@ getgenv().kocmoc = {
         convertballoons = false,
         autostockings = false,
         autosamovar = false,
-	    autoplantsprouts = false,
+	    autoplantsprout = false,
         autosnowmachine = false,
         autohoneywreath = false,
         autoonettart = false,
@@ -487,7 +487,7 @@ getgenv().kocmoc = {
         ["autouseGlue"] = false,
         ["autouseGlitter"] = false,
         ["autouseTropical Drink"] = false,
-	    ["autouseSuper Smoothie"] = false,
+	["autouseSuper Smoothie"] = false,
         ["autousePurple Potion"] = false,
         ["autouseStinger"] = false,	
         usegumdropsforquest = false,
@@ -2304,7 +2304,7 @@ guiElements["toggles"]["autoonettart"] = farmt:CreateToggle("Auto Onett's Lid Ar
 guiElements["toggles"]["freeantpass"] = farmt:CreateToggle("Auto Free Antpasses", nil, function(State) kocmoc.toggles.freeantpass = State end)
 guiElements["toggles"]["freerobopass"] = farmt:CreateToggle("Auto Free Robopasses", nil, function(State) kocmoc.toggles.freerobopass = State end)
 guiElements["toggles"]["farmsprouts"] = farmt:CreateToggle("Farm Sprouts", nil, function(State) kocmoc.toggles.farmsprouts = State end)
-guiElements["toggles"]["autoplantsprouts"] = farmt:CreateToggle("Auto Plant Magic Bean", nil, function(State) kocmoc.toggles.autoplantsprouts = State end)
+guiElements["toggles"]["autoplantsprout"] = farmt:CreateToggle("Auto Plant Magic Bean", nil, function(State) kocmoc.toggles.autoplantsprout = State end)
 guiElements["toggles"]["farmpuffshrooms"] = farmt:CreateToggle("Farm Puffshrooms", nil, function(State) kocmoc.toggles.farmpuffshrooms = State end)
 farmt:CreateToggle("Farm Snowflakes ["..Danger.."]", nil, function(State) kocmoc.toggles.farmsnowflakes = State end)
 guiElements["toggles"]["farmrares"] = farmt:CreateToggle("Teleport To Rares ["..Danger.."]", nil, function(State) kocmoc.toggles.farmrares = State end)
@@ -4025,6 +4025,18 @@ task.spawn(function()
             if kocmoc.toggles.autosnowmachine then
                 game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Snow Machine")
             end
+            
+            if kocmoc.toggles.autoplantsprout then
+                wait(5)
+            local args = {
+            [1] = {
+            ["Name"] = "Magic Bean"
+                     }
+                        }
+
+            game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack(args))
+            end
+            
             if kocmoc.toggles.autosamovar then
                 game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Samovar")
                 platformm = game.Workspace.Toys.Samovar.Platform
@@ -4091,21 +4103,10 @@ task.spawn(function()
             if kocmoc.toggles.autodonate then
                 if isWindshrineOnCooldown() == false then
                     donateToShrine(kocmoc.vars.donoItem, kocmoc.vars.donoAmount)
-                    
-              end   
-            if kocmoc.toggles.autoplantsprouts then		
-            wait(5)
-			local args = {
-            [1] = {
-            ["Name"] = "Magic Bean"
-                     }
-                        }
-
-            game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack(args))
-			end
-      end
-     end
-   end
+                end
+            end
+        end
+    end
 end)
 
 task.spawn(function()
