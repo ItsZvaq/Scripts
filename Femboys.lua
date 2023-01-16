@@ -433,7 +433,8 @@ getgenv().kocmoc = {
         convertballoons = false,
         autostockings = false,
         autosamovar = false,
-	    autoplantsprout = false,
+	autoplantsprout = false,
+	autojb = false,
         autosnowmachine = false,
         autohoneywreath = false,
         autoonettart = false,
@@ -2305,6 +2306,7 @@ guiElements["toggles"]["freeantpass"] = farmt:CreateToggle("Auto Free Antpasses"
 guiElements["toggles"]["freerobopass"] = farmt:CreateToggle("Auto Free Robopasses", nil, function(State) kocmoc.toggles.freerobopass = State end)
 guiElements["toggles"]["farmsprouts"] = farmt:CreateToggle("Farm Sprouts", nil, function(State) kocmoc.toggles.farmsprouts = State end)
 guiElements["toggles"]["autoplantsprout"] = farmt:CreateToggle("Auto Plant Magic Bean", nil, function(State) kocmoc.toggles.autoplantsprout = State end)
+guiElements["toggles"]["autojb"] = farmt:CreateToggle("Auto Use Jelly Beans", nil, function(State) kocmoc.toggles.autojb = State end)
 guiElements["toggles"]["farmpuffshrooms"] = farmt:CreateToggle("Farm Puffshrooms", nil, function(State) kocmoc.toggles.farmpuffshrooms = State end)
 farmt:CreateToggle("Farm Snowflakes ["..Danger.."]", nil, function(State) kocmoc.toggles.farmsnowflakes = State end)
 guiElements["toggles"]["farmrares"] = farmt:CreateToggle("Teleport To Rares ["..Danger.."]", nil, function(State) kocmoc.toggles.farmrares = State end)
@@ -4027,7 +4029,7 @@ task.spawn(function()
             end
             
             if kocmoc.toggles.autoplantsprout then
-                wait(5)
+             
             local args = {
             [1] = {
             ["Name"] = "Magic Bean"
@@ -4035,6 +4037,19 @@ task.spawn(function()
                         }
 
             game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack(args))
+	    wait(5)	
+            end
+		
+	   if kocmoc.toggles.autojb then
+	    
+            local args = {
+            [1] = {
+            ["Name"] = "Jelly Beans"
+                     }
+                        }
+
+            game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack(args))
+	    wait(45)		
             end
             
             if kocmoc.toggles.autosamovar then
