@@ -2168,7 +2168,7 @@ function formatString(Planter, Field, Nectar)
 end
 
 local Config = {
-    WindowName = "Orangina v" .. temptable.version .. " Remastered By OrangeIsTheColour",
+    WindowName = "Orangina v" .. temptable.version .. " Remastered By Orangina",
     Color = Color3.fromRGB(255, 128, 0),
     Keybind = Enum.KeyCode.Semicolon
 }
