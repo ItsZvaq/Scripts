@@ -4049,7 +4049,7 @@ task.spawn(function()
                         }
 
             game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack(args))
-	    wait(45)		
+	    wait(60)		
             end
             
             if kocmoc.toggles.autosamovar then
