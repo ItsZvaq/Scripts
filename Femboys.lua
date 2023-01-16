@@ -433,6 +433,7 @@ getgenv().kocmoc = {
         convertballoons = false,
         autostockings = false,
         autosamovar = false,
+	autoplantsprouts = false,
         autosnowmachine = false,
         autohoneywreath = false,
         autoonettart = false,
@@ -3754,15 +3755,8 @@ task.spawn(function()
                             makequests()
                         end
 			if kocmoc.toggles.autoplantsprouts then		
-			local args = {
-   				 [1] = {
-				["Name"] = "Magic Bean"
-   					 }
-					}
-
-				game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer(unpack(args))		
-						end
-						
+			game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer("Magic Bean")
+			end
 						
                         if kocmoc.toggles.autokillmobs then
                             if tick() - temptable.lastmobkill >= kocmoc.vars.monstertimer * 60 then
