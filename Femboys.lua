@@ -487,7 +487,7 @@ getgenv().kocmoc = {
         ["autouseGlue"] = false,
         ["autouseGlitter"] = false,
         ["autouseTropical Drink"] = false,
-	 ["autouseSuper Smoothie"] = false,
+	["autouseSuper Smoothie"] = false,
         ["autousePurple Potion"] = false,
         ["autouseStinger"] = false,	
         usegumdropsforquest = false,
@@ -2304,7 +2304,7 @@ guiElements["toggles"]["autoonettart"] = farmt:CreateToggle("Auto Onett's Lid Ar
 guiElements["toggles"]["freeantpass"] = farmt:CreateToggle("Auto Free Antpasses", nil, function(State) kocmoc.toggles.freeantpass = State end)
 guiElements["toggles"]["freerobopass"] = farmt:CreateToggle("Auto Free Robopasses", nil, function(State) kocmoc.toggles.freerobopass = State end)
 guiElements["toggles"]["farmsprouts"] = farmt:CreateToggle("Farm Sprouts", nil, function(State) kocmoc.toggles.farmsprouts = State end)
-guiElements["toggles"]["autoplantsprout"] = farmo:CreateToggle("Auto Plant Magic Bean", nil, function(State) kocmoc.toggles.autoplantsprout = State end)
+guiElements["toggles"]["autoplantsprout"] = farmo:CreateToggle("Auto Plant Magic Bean", nil, function(State) kocmoc.toggles.autoplantsprouts = State end)
 guiElements["toggles"]["farmpuffshrooms"] = farmt:CreateToggle("Farm Puffshrooms", nil, function(State) kocmoc.toggles.farmpuffshrooms = State end)
 farmt:CreateToggle("Farm Snowflakes ["..Danger.."]", nil, function(State) kocmoc.toggles.farmsnowflakes = State end)
 guiElements["toggles"]["farmrares"] = farmt:CreateToggle("Teleport To Rares ["..Danger.."]", nil, function(State) kocmoc.toggles.farmrares = State end)
